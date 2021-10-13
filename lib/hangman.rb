@@ -33,4 +33,14 @@ class Hangman
     secret_word_array = @secret_word.split("")
     secret_word_array.each_index.select{ |i| secret_word_array[i] == char }
   end
+
+  def fill_indices(char, array)
+    @guess_word.map!.with_index do |element, index|
+      if array.include?(index)
+        char
+      else
+        element
+      end
+    end
+  end
 end
