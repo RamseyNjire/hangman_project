@@ -28,4 +28,9 @@ class Hangman
   def already_attempted?(char)
     @attempted_chars.include?(char) ? true : false
   end
+
+  def get_matching_indices(char)
+    secret_word_array = @secret_word.split("")
+    secret_word_array.each_index.select{ |i| secret_word_array[i] == char }
+  end
 end
